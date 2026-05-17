@@ -1,0 +1,41 @@
+---
+const skills = [
+  { icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4', title: 'Manual Testing', desc: 'Comprehensive test case design and execution for web & mobile applications' },
+  { icon: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z', title: 'API Testing', desc: 'REST API validation using Postman and Swagger with automated test suites' },
+  { icon: 'M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z', title: 'Payment Testing', desc: 'End-to-end payment flow testing for QRIS, e-wallet, and banking systems' },
+  { icon: 'M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7zm4 3h8m-8 4h8m-8 4h4', title: 'Database Validation', desc: 'SQL query validation and data integrity checks across multiple databases' },
+  { icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', title: 'Regression Testing', desc: 'Systematic regression testing to ensure stability across releases' },
+  { icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', title: 'Compatibility Testing', desc: 'Cross-browser and cross-device testing for consistent user experience' },
+];
+---
+
+<section id="skills" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Left heading -->
+      <div class="lg:col-span-4">
+        <p class="text-xs font-semibold tracking-[0.2em] text-mint uppercase mb-2">Skills</p>
+        <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">Core Expertise</h2>
+        <p class="text-body leading-relaxed mb-6">A combination of manual testing expertise, technical understanding, and practical tools to ensure high-quality software delivery.</p>
+        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-border text-dark text-sm font-semibold rounded-full hover:border-mint hover:text-mint transition-all duration-200">
+          View All Skills
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <!-- Right grid -->
+      <div class="lg:col-span-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {skills.map(skill => (
+            <div class="bg-light-bg rounded-2xl p-5 hover:shadow-md transition-all duration-300 group hover:-translate-y-1 border border-transparent hover:border-mint-200">
+              <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-4 group-hover:bg-mint-50 transition-colors shadow-sm">
+                <svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={skill.icon}/></svg>
+              </div>
+              <h3 class="text-sm font-bold text-dark mb-1.5">{skill.title}</h3>
+              <p class="text-xs text-muted leading-relaxed">{skill.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+---
+const jobs = [
+  {
+    period: '2023 — Present',
+    company: 'PT Vascomm Solusi Teknologi',
+    role: 'Software Quality Assurance Engineer',
+    desc: 'Testing enterprise QRIS ecosystem applications across web, mobile, admin dashboard, and APIs.',
+  },
+  // {
+  //   period: '2024 — 2025',
+  //   company: 'PT Texio Mitra Digitalisis Indonesia',
+  //   role: 'Quality Assurance',
+  //   desc: 'Testing web and mobile applications for management systems and internal platforms.',
+  // },
+  {
+    period: '2022 — 2023',
+    company: 'PT Gear Inc Services Indonesia',
+    role: 'Quality Assurance Trainer',
+    desc: 'Handled quality monitoring, calibration, reporting, evaluation, and QA process validation.',
+  },
+];
+---
+
+<section id="experience" class="py-20 bg-light-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Left heading -->
+      <div class="lg:col-span-4">
+        <p class="text-xs font-semibold tracking-[0.2em] text-mint uppercase mb-2">Experience</p>
+        <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">Work Journey</h2>
+        <p class="text-body leading-relaxed mb-6">My professional journey in quality assurance across multiple industries and enterprise-level projects.</p>
+        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-border text-dark text-sm font-semibold rounded-full hover:border-mint hover:text-mint transition-all duration-200">
+          View Full History
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <!-- Right timeline -->
+      <div class="lg:col-span-8">
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-border"></div>
+          <div class="space-y-8">
+            {jobs.map((job, i) => (
+              <div class="relative pl-12 group">
+                <!-- Dot -->
+                <div class:list={["absolute left-2.5 top-1.5 w-3 h-3 rounded-full border-2 transition-colors duration-300", i === 0 ? "bg-mint border-mint" : "bg-white border-border group-hover:border-mint"]}>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border hover:border-mint-200">
+                  <span class="text-xs font-medium text-muted">{job.period}</span>
+                  <h3 class="text-lg font-bold text-dark mt-1">{job.company}</h3>
+                  <p class="text-sm font-semibold text-mint mt-0.5">{job.role}</p>
+                  <p class="text-sm text-muted mt-2 leading-relaxed">{job.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
