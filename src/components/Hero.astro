@@ -12,8 +12,8 @@ const tools = [
 
 <section id="home" class="pt-0 pb-0 lg:pt-32 lg:pb-20 bg-white">
   <div class="max-w-7xl mx-auto lg:px-8">
-    <!-- ========== MOBILE / TABLET HERO ========== -->
-    <div class="lg:hidden">
+    <!-- ========== MOBILE HERO ========== -->
+    <div class="md:hidden">
       <!-- Full-bleed Photo with gradient overlay -->
       <div class="relative h-[70vh] min-h-[420px] max-h-[560px] overflow-hidden">
         <img
@@ -84,6 +84,76 @@ const tools = [
                 <span class="text-[8px] text-muted font-medium leading-tight">{tool.name}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== TABLET HERO ========== -->
+    <div class="hidden md:block lg:hidden px-6 pt-24 pb-10">
+      <div class="grid min-h-[calc(100vh-6rem)] grid-cols-[0.92fr_1.08fr] items-center gap-6">
+        <div class="relative h-[min(62vh,520px)] min-h-[430px] overflow-hidden rounded-[32px] border border-border bg-light-bg shadow-xl shadow-mint/10">
+          <img
+            src="/images/profile.png"
+            alt="Adlian Ramadhan"
+            class="absolute inset-0 h-full w-full object-cover object-[center_18%]"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-dark/5 via-transparent to-dark/70"></div>
+          <div class="absolute inset-x-5 bottom-5">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-dark shadow-sm backdrop-blur">
+              <span class="h-1.5 w-1.5 rounded-full bg-mint"></span>
+              QA Engineer
+            </span>
+            <h1 class="mt-3 text-5xl font-bold leading-[0.95] tracking-tight text-white">
+              Adlian<br />Ramadhan
+            </h1>
+          </div>
+        </div>
+
+        <div class="rounded-[32px] border border-border bg-white p-7 shadow-lg shadow-mint/10">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-mint">Software Quality Assurance</p>
+          <h2 class="mt-3 text-4xl font-bold leading-tight text-dark">Reliable QA for product teams</h2>
+          <p class="mt-4 text-sm leading-relaxed text-body">
+            Manual testing for web, mobile, API, and fintech products with structured scenarios, edge case validation, and clear issue discovery.
+          </p>
+
+          <div class="mt-6 grid grid-cols-3 gap-3">
+            <div class="rounded-2xl border border-border bg-light-bg px-4 py-3 text-center">
+              <p class="text-xl font-bold leading-none text-dark">4+</p>
+              <p class="mt-1 text-[10px] font-medium text-muted">Years Exp.</p>
+            </div>
+            <div class="rounded-2xl border border-border bg-light-bg px-4 py-3 text-center">
+              <p class="text-xl font-bold leading-none text-dark">15+</p>
+              <p class="mt-1 text-[10px] font-medium text-muted">Projects</p>
+            </div>
+            <div class="rounded-2xl border border-border bg-light-bg px-4 py-3 text-center">
+              <p class="text-xl font-bold leading-none text-dark">QA</p>
+              <p class="mt-1 text-[10px] font-medium text-muted">Specialist</p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex gap-3">
+            <a href="#projects" class="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-dark px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800">
+              View Projects
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="#contact" class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-border text-dark transition-colors hover:border-mint hover:text-mint" aria-label="Contact">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8" /></svg>
+            </a>
+          </div>
+
+          <div class="mt-6 border-t border-border pt-5">
+            <p class="mb-3 text-[10px] font-semibold uppercase tracking-wider text-muted">Tools & Technologies</p>
+            <div class="grid grid-cols-4 gap-3">
+              {tools.map(tool => (
+                <div class="flex min-w-0 flex-col items-center gap-1.5 group cursor-default" title={tool.label}>
+                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-light-bg transition-colors group-hover:bg-mint-50">
+                    <svg class="h-5 w-5 text-muted group-hover:text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={tool.icon} /></svg>
+                  </div>
+                  <span class="text-center text-[9px] font-medium leading-tight text-muted">{tool.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
