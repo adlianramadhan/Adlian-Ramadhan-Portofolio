@@ -9,60 +9,147 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-border transition-all duration-300">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-lg border-b border-border md:bg-white/80 md:backdrop-blur-lg md:border-b md:border-border" data-header>
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+    <div class="relative flex items-center justify-between h-14 sm:h-16">
       <!-- Mobile: hamburger left -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-muted hover:text-dark hover:bg-gray-100 transition-colors" aria-label="Toggle menu">
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-muted hover:text-dark hover:bg-gray-100/50 transition-colors" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-btn>
         <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
       <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center justify-center flex-1">
+      <div class="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:flex md:items-center md:justify-center">
         <div class="flex items-center space-x-8">
           {navLinks.map((link, i) => (
-            <a href={link.href} class:list={["text-sm font-medium transition-colors duration-200 hover:text-mint", i === 0 ? "text-mint" : "text-muted"]} data-nav-link>{link.name}</a>
+            <a href={link.href} class:list={["pointer-events-auto text-sm font-medium transition-colors duration-200 hover:text-mint", i === 0 ? "text-mint" : "text-muted"]} data-nav-link>{link.name}</a>
           ))}
         </div>
       </div>
 
       <!-- Download CV Button (always visible on right) -->
-      <a href="/cv/Adlian-Ramadhan-CV.pdf" download="Adlian-Ramadhan-CV.pdf" class="inline-flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 bg-dark text-white text-xs md:text-sm font-medium rounded-full hover:bg-gray-800 transition-all duration-200 hover:shadow-lg">
+      <a href="/cv/Curiculum%20Vitae%20(CV)%20Of%20Adlian%20Ramadhan.pdf" download="Curiculum Vitae (CV) Of Adlian Ramadhan.pdf" class="ml-auto inline-flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 bg-dark text-white text-xs md:text-sm font-medium rounded-full hover:bg-gray-800 transition-all duration-200 hover:shadow-lg">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         <span class="hidden sm:inline">Download CV</span>
         <span class="sm:hidden">CV</span>
       </a>
     </div>
 
-    <!-- Mobile Nav Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-border mt-2">
-      <div class="flex flex-col space-y-1 pt-3">
-        {navLinks.map((link) => (
-          <a href={link.href} class="text-sm font-medium text-muted hover:text-mint hover:bg-mint-50 transition-colors px-3 py-2.5 rounded-lg" data-mobile-link>{link.name}</a>
-        ))}
-      </div>
-    </div>
   </nav>
+
+  <div id="mobile-menu-backdrop" class="fixed inset-0 top-14 sm:top-16 z-40 hidden bg-dark/35 opacity-0 transition-opacity duration-300 md:hidden"></div>
+  <aside id="mobile-menu" class="fixed left-0 top-14 sm:top-16 z-50 h-[calc(100vh-3.5rem)] sm:h-[calc(100vh-4rem)] w-[82vw] max-w-xs -translate-x-full border-r border-border bg-white shadow-2xl transition-transform duration-300 ease-out md:hidden" aria-hidden="true">
+    <div class="flex flex-col gap-1 p-4 pt-5">
+      {navLinks.map((link) => (
+        <a href={link.href} class="text-sm font-semibold text-muted hover:text-mint hover:bg-mint-50 transition-colors px-4 py-3 rounded-xl" data-mobile-link>{link.name}</a>
+      ))}
+    </div>
+  </aside>
 </header>
 
 <script>
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-  const openIcon = document.getElementById('menu-open-icon');
-  const closeIcon = document.getElementById('menu-close-icon');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+  const header = document.querySelector('[data-header]');
+  const sectionLinks = [...document.querySelectorAll('[data-nav-link], [data-mobile-link]')];
+  const sectionIds = sectionLinks
+    .map(link => link instanceof HTMLAnchorElement ? link.hash.slice(1) : '')
+    .filter((id, index, ids) => id && ids.indexOf(id) === index);
 
-  menuBtn?.addEventListener('click', () => {
-    const isHidden = mobileMenu?.classList.toggle('hidden');
-    openIcon?.classList.toggle('hidden', !isHidden);
-    closeIcon?.classList.toggle('hidden', isHidden);
+  const isMenuOpen = () => menuBtn?.getAttribute('aria-expanded') === 'true';
+
+  const openMenu = () => {
+    mobileMenu?.classList.remove('-translate-x-full');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    backdrop?.classList.remove('hidden');
+    requestAnimationFrame(() => backdrop?.classList.remove('opacity-0'));
+    menuBtn?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const closeMenu = () => {
+    mobileMenu?.classList.add('-translate-x-full');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    backdrop?.classList.add('opacity-0');
+    menuBtn?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('overflow-hidden');
+
+    window.setTimeout(() => {
+      if (mobileMenu?.classList.contains('-translate-x-full')) {
+        backdrop?.classList.add('hidden');
+      }
+    }, 300);
+  };
+
+  menuBtn?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    isMenuOpen() ? closeMenu() : openMenu();
   });
 
-  document.querySelectorAll('[data-mobile-link]').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-      openIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
+  backdrop?.addEventListener('click', closeMenu);
+
+  document.addEventListener('click', (event) => {
+    if (!isMenuOpen()) return;
+
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (mobileMenu?.contains(target) || menuBtn?.contains(target)) return;
+
+    closeMenu();
+  });
+
+  const setActiveLink = (activeId: string) => {
+    sectionLinks.forEach(link => {
+      if (!(link instanceof HTMLAnchorElement)) return;
+      const isActive = link.hash === `#${activeId}`;
+      link.classList.toggle('text-mint', isActive);
+      link.classList.toggle('text-muted', !isActive);
+      link.classList.toggle('bg-mint-50', isActive && link.hasAttribute('data-mobile-link'));
+    });
+  };
+
+  const getHeaderOffset = () => {
+    if (!(header instanceof HTMLElement)) return 72;
+    return header.getBoundingClientRect().height + 14;
+  };
+
+  const scrollToSection = (hash: string) => {
+    const target = document.querySelector(hash);
+    if (!(target instanceof HTMLElement)) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+    window.scrollTo({ top, behavior: 'smooth' });
+    window.history.pushState(null, '', hash);
+    setActiveLink(hash.slice(1));
+  };
+
+  const updateActiveSection = () => {
+    const probeY = window.scrollY + getHeaderOffset() + 24;
+    let activeId = sectionIds[0] ?? 'home';
+
+    sectionIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (!section) return;
+      if (section.offsetTop <= probeY) activeId = id;
+    });
+
+    setActiveLink(activeId);
+  };
+
+  sectionLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      if (!(link instanceof HTMLAnchorElement) || !link.hash) return;
+      event.preventDefault();
+      closeMenu();
+      scrollToSection(link.hash);
     });
   });
+
+  window.addEventListener('scroll', () => window.requestAnimationFrame(updateActiveSection), { passive: true });
+  window.addEventListener('resize', updateActiveSection);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  updateActiveSection();
 </script>

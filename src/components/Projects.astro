@@ -2,91 +2,271 @@
 const projects = [
   {
     num: '01',
-    title: 'BTN QRIS Ecosystem',
-    desc: 'End-to-end testing for QRIS payment ecosystem across mobile, web admin, merchant dashboard, partner dashboard, POS, and BTN mobile.',
-    badges: ['QRIS', 'API Testing', 'NFC', 'Web Admin'],
+    title: 'BTN QRIS | BTN Merchant',
+    desc: 'QA for QRIS CPM, MPM, TAP, settlement, refund, Snap API, merchant onboarding, UUPDP compliance, and backend/API improvements.',
+    badges: ['QRIS', 'Open API', 'Settlement', 'Redis'],
     color: 'from-teal-400 to-cyan-500',
+    logo: '/images/projects/btn-ecosystem.png',
+    logoAlt: 'BTN Merchant logo',
+    logoTone: 'p-5',
   },
   {
     num: '02',
-    title: 'Smart Residence',
-    desc: 'Testing billing, payment, dashboard, notifications, email templates, user management, log checking, regression, and compatibility.',
-    badges: ['Billing', 'Mobile', 'Dashboard', 'Web'],
+    title: 'BTN Webview POS',
+    desc: 'Validated embedded WebView integration in BTN mobile applications, covering navigation flow, redirects, session handling, and error states.',
+    badges: ['WebView', 'Mobile POS', 'Navigation', 'Session'],
     color: 'from-blue-400 to-indigo-500',
+    logo: '/images/projects/btn-ecosystem.png',
+    logoAlt: 'BTN POS logo',
+    logoTone: 'p-5',
   },
   {
     num: '03',
-    title: 'HR & Management Systems',
-    desc: 'Testing HR, recruitment, CRM, and management platforms including E2E Recruitment, Kelola HR, Talent Go, and internal systems.',
-    badges: ['HR Platform', 'API', 'CRM', 'Responsive'],
+    title: 'BTN Smart Residence',
+    desc: 'Testing billing, payments, Open VA, residence configuration, user access, email notifications, dashboard reporting, APIs, and release cycles.',
+    badges: ['Billing', 'Open VA', 'API', 'Regression'],
     color: 'from-purple-400 to-pink-500',
+    logo: '/images/projects/bale-community.png',
+    logoAlt: 'Bale Community by BTN logo',
+    logoTone: 'p-4',
   },
+  // {
+  //   num: '04',
+  //   title: 'Bale Community by BTN',
+  //   desc: 'QA for community app flows, user journeys, content visibility, mobile responsiveness, and BTN ecosystem integration touchpoints.',
+  //   badges: ['Community', 'Mobile', 'BTN', 'Regression'],
+  //   color: 'from-red-400 to-blue-500',
+  //   logo: '/images/projects/bale-community.png',
+  //   logoAlt: 'Bale Community by BTN logo',
+  //   logoTone: 'p-6',
+  // },
+  {
+    num: '05',
+    title: 'Talent Go',
+    desc: 'QA for talent database, user access management, search validation, landing page checks, and end-to-end talent management workflows.',
+    badges: ['Talent DB', 'Search', 'Web Admin', 'Landing Page'],
+    color: 'from-emerald-400 to-lime-500',
+    logo: '/images/projects/talent-go.webp',
+    logoAlt: 'Talent Go logo',
+    logoTone: 'px-4 py-8',
+  },
+  {
+    num: '06',
+    title: 'EZ Recruitment',
+    desc: 'Functional and compatibility testing for recruitment platform flows, landing page behavior, session handling, redirects, and error validation.',
+    badges: ['Recruitment', 'SaaS', 'Landing Page', 'Flow'],
+    color: 'from-orange-400 to-amber-500',
+    logo: '/images/projects/ez-recruit.webp',
+    logoAlt: 'EZ Recruit logo',
+    logoTone: 'px-4 py-8',
+  },
+  {
+    num: '07',
+    title: 'Sitamoto AI',
+    desc: 'QA for CRM workflow, AI learning modules, study management, analytics dashboard, user management, and end-to-end business validation.',
+    badges: ['AI Dashboard', 'CRM', 'Analytics', 'Web Admin'],
+    color: 'from-sky-400 to-blue-500',
+    logo: '/images/projects/sitamoto.png',
+    logoAlt: 'Sitamoto AI logo',
+    logoTone: 'px-5 py-8',
+  },
+  {
+    num: '08',
+    title: 'Kelola HR',
+    desc: 'Production support and QA for HR workflows across web admin and mobile apps, including attendance, leave requests, employee data, and notifications.',
+    badges: ['HR', 'Mobile Apps', 'TestFlight', 'Workflow'],
+    color: 'from-violet-400 to-fuchsia-500',
+    logo: '/images/projects/kelola-hr.png',
+    logoAlt: 'Kelola HR logo',
+    logoTone: 'px-5 py-8',
+  },
+  {
+    num: '09',
+    title: 'Sales Management System CRM',
+    desc: 'Testing dashboard, user access, sales pipeline, reporting, tracking verification, and end-to-end CRM workflows for Meefa Solution.',
+    badges: ['CRM', 'Sales Pipeline', 'Dashboard', 'Reporting'],
+    color: 'from-rose-400 to-red-500',
+    logo: '/images/projects/sales-crm-logo.png',
+    logoAlt: 'Sales CRM logo',
+    logoTone: 'px-4 py-4',
+  },
+  // {
+  //   num: '10',
+  //   title: 'PUK Dunlop',
+  //   desc: 'QA for employee information system across web admin and Android app, covering reporting, mobile access, workflows, and public information validation.',
+  //   badges: ['Android', 'Reporting', 'Employee Info', 'Web Admin'],
+  //   color: 'from-cyan-400 to-teal-500',
+  // },
+  // {
+  //   num: '11',
+  //   title: 'Texio.id Landing Page',
+  //   desc: 'UI/UX, responsive, cross-browser, layout consistency, CTA flow, mobile view, and cross-device compatibility testing.',
+  //   badges: ['Landing Page', 'Responsive', 'CTA', 'Mobile View'],
+  //   color: 'from-slate-500 to-gray-700',
+  // },
+];
+
+const projectVisuals = [
+  ['QRIS', 'CPM', 'MPM'],
+  ['POS', 'WebView', 'Mobile'],
+  ['Billing', 'VA', 'Residence'],
+  ['Bale', 'Community', 'BTN'],
+  ['Talent', 'Search', 'Database'],
+  ['Recruit', 'Flow', 'SaaS'],
+  ['AI', 'CRM', 'Analytics'],
+  ['HR', 'Leave', 'Mobile'],
+  ['Sales', 'CRM', 'Report'],
+  ['PUK', 'Info', 'Android'],
+  ['Landing', 'CTA', 'Mobile'],
 ];
 ---
 
-<section id="projects" class="py-20 bg-white">
+<section id="projects" class="py-10 sm:py-16 lg:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Heading -->
-    <div class="mb-12">
-      <p class="text-xs font-semibold tracking-[0.2em] text-mint uppercase mb-2">Projects</p>
-      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-        <div>
-          <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-3">Featured Projects</h2>
-          <p class="text-body max-w-xl leading-relaxed">Some of the major projects I've been involved in quality assurance, ensuring reliability and performance.</p>
-        </div>
-        <!-- <a href="#" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-border text-dark text-sm font-semibold rounded-full hover:border-mint hover:text-mint transition-all duration-200 shrink-0">
-          View All Projects
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a> -->
-      </div>
+    <div class="mb-6 sm:mb-12 text-center">
+      <p class="text-xs font-semibold tracking-[0.2em] text-mint uppercase mb-1.5 sm:mb-2">Projects</p>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark mb-2 sm:mb-3">Project Experience</h2>
+      <p class="text-xs sm:text-base text-body max-w-xl mx-auto leading-relaxed">Selected QA projects from my CV, covering fintech, WebView POS, HR, recruitment, CRM, AI dashboard, and responsive web platforms.</p>
     </div>
+
     <!-- Project cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {projects.map(project => (
-        <div class="group bg-light-bg rounded-2xl overflow-hidden border border-border hover:border-mint-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-          <!-- Device mockup area -->
-          <div class={`relative h-48 bg-gradient-to-br ${project.color} p-6 overflow-hidden`}>
-            <span class="absolute top-4 left-4 text-5xl font-black text-white/20">{project.num}</span>
-            <!-- Laptop mockup -->
-            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-40 h-24 bg-gray-800 rounded-t-lg border-2 border-gray-600 overflow-hidden shadow-xl">
-              <div class="flex items-center gap-0.5 px-1.5 py-0.5 bg-gray-900">
-                <span class="w-1 h-1 rounded-full bg-red-400"></span>
-                <span class="w-1 h-1 rounded-full bg-yellow-400"></span>
-                <span class="w-1 h-1 rounded-full bg-green-400"></span>
+    <div class="relative sm:px-14 lg:px-16">
+      <button type="button" data-project-prev aria-label="Previous project" class="absolute left-0 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white text-dark shadow-sm transition-all duration-300 ease-out hover:-translate-x-0.5 hover:border-dark hover:bg-light-bg hover:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-100 sm:inline-flex sm:h-12 sm:w-12">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+
+      <button type="button" data-project-next aria-label="Next project" class="absolute right-0 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white text-dark shadow-sm transition-all duration-300 ease-out hover:translate-x-0.5 hover:border-dark hover:bg-light-bg hover:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-100 sm:inline-flex sm:h-12 sm:w-12">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M9 5l7 7-7 7" /></svg>
+      </button>
+
+      <div class="-mx-4 overflow-x-auto px-4 pb-4 no-scrollbar sm:mx-0 sm:px-0" data-project-track>
+        <div class="flex snap-x snap-mandatory gap-4 sm:gap-5 lg:gap-6">
+        {projects.map((project, index) => (
+          <div class="group min-w-[72vw] snap-start bg-light-bg rounded-2xl overflow-hidden border border-border hover:border-mint-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 sm:min-w-[calc(50%-10px)] lg:min-w-[calc((100%-48px)/3)]">
+            <!-- Device mockup area -->
+            <div class={`relative h-36 overflow-hidden bg-gradient-to-br ${project.color} p-4 sm:h-48 sm:p-5`}>
+              <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0_1px,transparent_1px_18px)]"></div>
+              <span class="absolute left-4 top-4 text-4xl font-black text-white/20 sm:text-5xl">{project.num}</span>
+              <div class="absolute right-4 top-4 rounded-full bg-white/20 px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur">
+                QA Project
               </div>
-              <div class="bg-white h-full p-1">
-                <div class="w-full h-1.5 bg-gray-200 rounded mb-1"></div>
-                <div class="w-3/4 h-1 bg-gray-100 rounded mb-0.5"></div>
-                <div class="w-1/2 h-1 bg-gray-100 rounded mb-1"></div>
-                <div class="grid grid-cols-3 gap-0.5">
-                  <div class="h-3 bg-mint-100 rounded"></div>
-                  <div class="h-3 bg-blue-100 rounded"></div>
-                  <div class="h-3 bg-purple-100 rounded"></div>
+
+              {project.logo ? (
+                <div class="absolute inset-x-5 bottom-5">
+                  <div class={`flex h-28 items-center justify-center rounded-2xl border border-white/70 bg-white shadow-xl ring-1 ring-black/5 ${project.logoTone}`}>
+                    <img src={project.logo} alt={project.logoAlt} loading="lazy" class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div class="absolute inset-x-5 bottom-5 rounded-2xl border border-white/70 bg-white/92 p-3 shadow-xl backdrop-blur">
+                  <div class="mb-3 flex items-center justify-between">
+                    <div class="flex items-center gap-1">
+                      <span class="h-2 w-2 rounded-full bg-red-400"></span>
+                      <span class="h-2 w-2 rounded-full bg-yellow-400"></span>
+                      <span class="h-2 w-2 rounded-full bg-green-400"></span>
+                    </div>
+                    <span class="text-[9px] font-bold uppercase tracking-wider text-muted">QA View</span>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2">
+                    {projectVisuals[index].map(item => (
+                      <div class="rounded-xl bg-light-bg px-2 py-2 text-center ring-1 ring-border/60">
+                        <p class="truncate text-[10px] font-bold text-dark">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            <!-- Phone mockup -->
-            <div class="absolute bottom-2 right-6 w-14 h-24 bg-gray-800 rounded-lg border-2 border-gray-600 overflow-hidden shadow-xl">
-              <div class="w-4 h-0.5 bg-gray-600 rounded-full mx-auto mt-0.5"></div>
-              <div class="bg-white h-full m-0.5 rounded-sm p-0.5">
-                <div class="w-full h-1 bg-mint-200 rounded mb-0.5"></div>
-                <div class="w-3/4 h-0.5 bg-gray-100 rounded mb-0.5"></div>
-                <div class="w-full h-4 bg-gray-50 rounded"></div>
+            <!-- Content -->
+            <div class="p-4 sm:p-6">
+              <h3 class="text-sm sm:text-lg font-bold text-dark mb-1.5 sm:mb-2 group-hover:text-mint transition-colors">{project.title}</h3>
+              <p class="text-[11px] sm:text-sm text-muted leading-relaxed mb-3 sm:mb-4">{project.desc}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.badges.map(badge => (
+                  <span class="px-3 py-1 text-[10px] font-semibold bg-mint-50 text-mint-600 rounded-full">{badge}</span>
+                ))}
               </div>
             </div>
           </div>
-          <!-- Content -->
-          <div class="p-6">
-            <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-mint transition-colors">{project.title}</h3>
-            <p class="text-sm text-muted leading-relaxed mb-4">{project.desc}</p>
-            <div class="flex flex-wrap gap-2">
-              {project.badges.map(badge => (
-                <span class="px-3 py-1 text-[10px] font-semibold bg-mint-50 text-mint-600 rounded-full">{badge}</span>
-              ))}
-            </div>
-          </div>
+        ))}
         </div>
-      ))}
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const projectTrack = document.querySelector('[data-project-track]');
+  const projectPrev = document.querySelector('[data-project-prev]');
+  const projectNext = document.querySelector('[data-project-next]');
+  let projectIndex = 0;
+
+  const getProjectStep = () => {
+    const card = projectTrack?.querySelector('.snap-start');
+    if (!(card instanceof HTMLElement)) return 0;
+    const styles = window.getComputedStyle(projectTrack?.firstElementChild ?? card);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap || '0') || 0;
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  const getProjectMaxIndex = () => {
+    if (!(projectTrack instanceof HTMLElement)) return 0;
+    const step = getProjectStep();
+    if (!step) return 0;
+    return Math.max(0, Math.round((projectTrack.scrollWidth - projectTrack.clientWidth) / step));
+  };
+
+  const syncProjectIndex = () => {
+    const step = getProjectStep();
+    if (!step || !(projectTrack instanceof HTMLElement)) return;
+    projectIndex = Math.min(getProjectMaxIndex(), Math.max(0, Math.round(projectTrack.scrollLeft / step)));
+  };
+
+  const scrollProjectToIndex = (nextIndex: number) => {
+    if (!(projectTrack instanceof HTMLElement)) return;
+    const step = getProjectStep();
+    const maxIndex = getProjectMaxIndex();
+    projectIndex = Math.min(maxIndex, Math.max(0, nextIndex));
+    projectTrack.scrollTo({ left: projectIndex * step, behavior: 'smooth' });
+    updateProjectButtons();
+  };
+
+  const updateProjectButtons = () => {
+    if (!(projectTrack instanceof HTMLElement)) return;
+    const setButtonVisible = (button: Element | null, visible: boolean) => {
+      if (!(button instanceof HTMLButtonElement)) return;
+      button.classList.toggle('opacity-0', !visible);
+      button.classList.toggle('scale-95', !visible);
+      button.classList.toggle('pointer-events-none', !visible);
+      button.tabIndex = visible ? 0 : -1;
+      button.setAttribute('aria-hidden', String(!visible));
+    };
+
+    setButtonVisible(projectPrev, projectIndex > 0);
+    setButtonVisible(projectNext, projectIndex < getProjectMaxIndex());
+  };
+
+  projectPrev?.addEventListener('click', () => {
+    scrollProjectToIndex(projectIndex - 1);
+  });
+
+  projectNext?.addEventListener('click', () => {
+    scrollProjectToIndex(projectIndex + 1);
+  });
+
+  projectTrack?.addEventListener('scroll', () => {
+    window.requestAnimationFrame(() => {
+      syncProjectIndex();
+      updateProjectButtons();
+    });
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    syncProjectIndex();
+    scrollProjectToIndex(projectIndex);
+  });
+
+  syncProjectIndex();
+  updateProjectButtons();
+</script>
