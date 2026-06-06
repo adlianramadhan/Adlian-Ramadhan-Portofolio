@@ -12,6 +12,8 @@ const skills = [
   { icon: 'M17 20h5v-2a4 4 0 00-4-4h-1M9 20H4v-2a4 4 0 014-4h1m4-4a4 4 0 100-8 4 4 0 000 8zm6 0a4 4 0 100-8', title: 'Agile Workflow', desc: 'Adapting quickly to Agile/Scrum environments while maintaining effective communication and collaboration with developers, product teams, and stakeholders throughout the QA process.' },
   { icon: 'M12 3l1.8 5.5h5.8l-4.7 3.4 1.8 5.6L12 14.1l-4.7 3.4 1.8-5.6-4.7-3.4h5.8L12 3z', title: 'AI Integration', desc: 'Leveraging AI and advanced prompting to optimize manual workflows, dynamically generate test cases, and uncover edge cases for seamless automation readiness.' },
 ];
+
+const visibleSkills = skills.slice(0, 9);
 ---
 
 <section id="skills" class="py-10 sm:py-16 lg:py-20 bg-white">
@@ -24,103 +26,16 @@ const skills = [
       </p>
     </div>
 
-    <div class="relative md:px-14 lg:px-16">
-      <button type="button" data-skill-prev aria-label="Previous skill" class="absolute left-0 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white text-dark shadow-sm transition-all duration-300 ease-out hover:-translate-x-0.5 hover:border-dark hover:bg-light-bg hover:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-100 md:inline-flex md:h-12 md:w-12">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M15 19l-7-7 7-7" /></svg>
-      </button>
-
-      <button type="button" data-skill-next aria-label="Next skill" class="absolute right-0 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white text-dark shadow-sm transition-all duration-300 ease-out hover:translate-x-0.5 hover:border-dark hover:bg-light-bg hover:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-100 md:inline-flex md:h-12 md:w-12">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M9 5l7 7-7 7" /></svg>
-      </button>
-
-      <div class="-mx-4 overflow-x-auto px-4 pb-4 no-scrollbar md:mx-0 md:px-0" data-skill-track>
-        <div class="flex snap-x snap-mandatory gap-3 sm:gap-5 lg:gap-6">
-          {skills.map(skill => (
-            <div class="group min-w-[72vw] snap-start rounded-2xl border border-transparent bg-light-bg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-mint-200 hover:shadow-md md:min-w-[calc(50%-10px)] md:p-6 lg:min-w-[calc((100%-48px)/3)]">
-              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white flex items-center justify-center mb-3 sm:mb-5 group-hover:bg-mint-50 transition-colors shadow-sm">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={skill.icon} /></svg>
-              </div>
-              <h3 class="text-sm sm:text-lg font-bold text-dark mb-1.5 sm:mb-2">{skill.title}</h3>
-              <p class="text-xs sm:text-sm text-muted leading-relaxed">{skill.desc}</p>
-            </div>
-          ))}
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+      {visibleSkills.map(skill => (
+        <div class="group rounded-2xl border border-transparent bg-light-bg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-mint-200 hover:shadow-md md:p-6">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white flex items-center justify-center mb-3 sm:mb-5 group-hover:bg-mint-50 transition-colors shadow-sm">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={skill.icon} /></svg>
+          </div>
+          <h3 class="text-sm sm:text-lg font-bold text-dark mb-1.5 sm:mb-2">{skill.title}</h3>
+          <p class="text-xs sm:text-sm text-muted leading-relaxed">{skill.desc}</p>
         </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
-
-<script>
-  const skillTrack = document.querySelector('[data-skill-track]');
-  const skillPrev = document.querySelector('[data-skill-prev]');
-  const skillNext = document.querySelector('[data-skill-next]');
-  let skillIndex = 0;
-
-  const getSkillStep = () => {
-    const card = skillTrack?.querySelector('.snap-start');
-    if (!(card instanceof HTMLElement)) return 0;
-    const styles = window.getComputedStyle(skillTrack?.firstElementChild ?? card);
-    const gap = Number.parseFloat(styles.columnGap || styles.gap || '0') || 0;
-    return card.getBoundingClientRect().width + gap;
-  };
-
-  const getSkillMaxIndex = () => {
-    if (!(skillTrack instanceof HTMLElement)) return 0;
-    const step = getSkillStep();
-    if (!step) return 0;
-    return Math.max(0, Math.round((skillTrack.scrollWidth - skillTrack.clientWidth) / step));
-  };
-
-  const syncSkillIndex = () => {
-    const step = getSkillStep();
-    if (!step || !(skillTrack instanceof HTMLElement)) return;
-    skillIndex = Math.min(getSkillMaxIndex(), Math.max(0, Math.round(skillTrack.scrollLeft / step)));
-  };
-
-  const scrollSkillToIndex = (nextIndex: number) => {
-    if (!(skillTrack instanceof HTMLElement)) return;
-    const step = getSkillStep();
-    const maxIndex = getSkillMaxIndex();
-    skillIndex = Math.min(maxIndex, Math.max(0, nextIndex));
-    skillTrack.scrollTo({ left: skillIndex * step, behavior: 'smooth' });
-    updateSkillButtons();
-  };
-
-  const updateSkillButtons = () => {
-    if (!(skillTrack instanceof HTMLElement)) return;
-    const setButtonVisible = (button: Element | null, visible: boolean) => {
-      if (!(button instanceof HTMLButtonElement)) return;
-      button.classList.toggle('opacity-0', !visible);
-      button.classList.toggle('scale-95', !visible);
-      button.classList.toggle('pointer-events-none', !visible);
-      button.tabIndex = visible ? 0 : -1;
-      button.setAttribute('aria-hidden', String(!visible));
-    };
-
-    setButtonVisible(skillPrev, skillIndex > 0);
-    setButtonVisible(skillNext, skillIndex < getSkillMaxIndex());
-  };
-
-  skillPrev?.addEventListener('click', () => {
-    scrollSkillToIndex(skillIndex - 1);
-  });
-
-  skillNext?.addEventListener('click', () => {
-    scrollSkillToIndex(skillIndex + 1);
-  });
-
-  skillTrack?.addEventListener('scroll', () => {
-    window.requestAnimationFrame(() => {
-      syncSkillIndex();
-      updateSkillButtons();
-    });
-  }, { passive: true });
-
-  window.addEventListener('resize', () => {
-    syncSkillIndex();
-    scrollSkillToIndex(skillIndex);
-  });
-
-  syncSkillIndex();
-  updateSkillButtons();
-</script>
