@@ -13,7 +13,8 @@ const skills = [
   { icon: 'M12 3l1.8 5.5h5.8l-4.7 3.4 1.8 5.6L12 14.1l-4.7 3.4 1.8-5.6-4.7-3.4h5.8L12 3z', title: 'AI Integration', desc: 'Leveraging AI and advanced prompting to optimize manual workflows, dynamically generate test cases, and uncover edge cases for seamless automation readiness.' },
 ];
 
-const visibleSkills = skills.slice(0, 9);
+const agileWorkflow = skills.find((skill) => skill.title === 'Agile Workflow');
+const visibleSkills = agileWorkflow ? [...skills.slice(0, 8), agileWorkflow] : skills.slice(0, 9);
 ---
 
 <section id="skills" class="py-10 sm:py-16 lg:py-20 bg-white">
