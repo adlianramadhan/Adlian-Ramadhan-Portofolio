@@ -29,7 +29,7 @@ const opportunities = [
         <h3 class="text-base sm:text-lg font-bold text-dark mb-3 sm:mb-4">Contact Details</h3>
         <div class="space-y-2 sm:space-y-3">
           {contactInfo.map(item => (
-            <a href={item.href ?? undefined} target={item.href?.startsWith('http') ? '_blank' : undefined} rel={item.href?.startsWith('http') ? 'noopener noreferrer' : undefined} class:list={["flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-light-bg rounded-xl transition-colors duration-200 group", item.href ? "hover:bg-mint-50 focus:outline-none focus:ring-4 focus:ring-mint-100" : "cursor-default"]}>
+            <a href={item.href ?? undefined} target={item.href?.startsWith('http') ? '_blank' : undefined} rel={item.href?.startsWith('http') ? 'noopener noreferrer' : undefined} class:list={["flex min-h-[76px] items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-light-bg rounded-xl transition-colors duration-200 group", item.href ? "hover:bg-mint-50 focus:outline-none focus:ring-4 focus:ring-mint-100" : "cursor-default"]}>
               <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-mint transition-colors">
                 <svg class="w-4 h-4 sm:w-5 sm:h-5 text-mint group-hover:text-white transition-colors" fill={item.label === 'GitHub' || item.label === 'WhatsApp' ? 'currentColor' : 'none'} stroke={item.label === 'GitHub' || item.label === 'WhatsApp' ? 'none' : 'currentColor'} viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon}/></svg>
               </div>
@@ -47,8 +47,8 @@ const opportunities = [
         <h3 class="text-base sm:text-lg font-bold text-dark mb-3 sm:mb-4">Open For Opportunities</h3>
         <div class="space-y-2 sm:space-y-3">
           {opportunities.map(opp => (
-            <div class="flex items-start gap-3 p-3 sm:p-4 bg-light-bg rounded-xl hover:bg-mint-50 transition-colors duration-200 group">
-              <div class="w-2 h-2 rounded-full bg-mint mt-1.5 shrink-0 group-hover:scale-125 transition-transform"></div>
+            <div class="flex min-h-[76px] items-center gap-3 p-3 sm:p-4 bg-light-bg rounded-xl hover:bg-mint-50 transition-colors duration-200 group">
+              <div class="w-2 h-2 rounded-full bg-mint shrink-0 group-hover:scale-125 transition-transform"></div>
               <div>
                 <p class="text-xs sm:text-sm font-bold text-dark">{opp.title}</p>
                 <p class="text-[10px] sm:text-xs text-muted mt-0.5">{opp.desc}</p>
