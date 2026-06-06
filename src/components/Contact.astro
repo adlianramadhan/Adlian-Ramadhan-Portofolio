@@ -23,21 +23,25 @@ const opportunities = [
       <p class="text-sm sm:text-base text-body mt-2 sm:mt-3 max-w-xl leading-relaxed">Open for freelance QA projects, enterprise software testing, and fintech quality assurance opportunities.</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10">
+    <div class="grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-2 lg:items-start">
       <!-- Contact details -->
-      <div class="space-y-4">
-        {contactInfo.map(item => (
-          <a href={item.href ?? undefined} target={item.href?.startsWith('http') ? '_blank' : undefined} rel={item.href?.startsWith('http') ? 'noopener noreferrer' : undefined} class:list={["flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-light-bg rounded-xl transition-colors duration-200 group", item.href ? "hover:bg-mint-50 focus:outline-none focus:ring-4 focus:ring-mint-100" : "cursor-default"]}>
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-mint transition-colors">
-              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-mint group-hover:text-white transition-colors" fill={item.label === 'GitHub' || item.label === 'WhatsApp' ? 'currentColor' : 'none'} stroke={item.label === 'GitHub' || item.label === 'WhatsApp' ? 'none' : 'currentColor'} viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon}/></svg>
-            </div>
-            <div class="min-w-0">
-              <p class="text-[10px] sm:text-xs font-semibold text-muted uppercase tracking-wider">{item.label}</p>
-              <p class="text-xs sm:text-sm font-medium text-dark mt-0.5 truncate">{item.value}</p>
-            </div>
-          </a>
-        ))}
+      <div>
+        <h3 class="text-base sm:text-lg font-bold text-dark mb-3 sm:mb-4">Contact Details</h3>
+        <div class="space-y-2 sm:space-y-3">
+          {contactInfo.map(item => (
+            <a href={item.href ?? undefined} target={item.href?.startsWith('http') ? '_blank' : undefined} rel={item.href?.startsWith('http') ? 'noopener noreferrer' : undefined} class:list={["flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-light-bg rounded-xl transition-colors duration-200 group", item.href ? "hover:bg-mint-50 focus:outline-none focus:ring-4 focus:ring-mint-100" : "cursor-default"]}>
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-mint transition-colors">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-mint group-hover:text-white transition-colors" fill={item.label === 'GitHub' || item.label === 'WhatsApp' ? 'currentColor' : 'none'} stroke={item.label === 'GitHub' || item.label === 'WhatsApp' ? 'none' : 'currentColor'} viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon}/></svg>
+              </div>
+              <div class="min-w-0">
+                <p class="text-[10px] sm:text-xs font-semibold text-muted uppercase tracking-wider">{item.label}</p>
+                <p class="text-xs sm:text-sm font-medium text-dark mt-0.5 truncate">{item.value}</p>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
+
       <!-- Opportunities -->
       <div>
         <h3 class="text-base sm:text-lg font-bold text-dark mb-3 sm:mb-4">Open For Opportunities</h3>
