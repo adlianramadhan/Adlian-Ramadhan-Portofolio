@@ -1,20 +1,13 @@
 ---
 const skills = [
-  { icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', title: 'Exploratory Strategy', desc: 'Intuitive testing to uncover edge cases and logical gaps beyond formal test cases.' },
-  { icon: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z', title: 'API & Integration', desc: 'Validating inter-service communication and cross-service integration using Postman or Swagger, and response code monitoring to ensure accurate system data flow.' },
-  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Automation Framework', desc: 'Building modular, reusable automation scripts to accelerate testing cycles efficiently.' },
+  { icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', title: 'Exploratory QA Strategy', desc: 'Uncovering edge cases and logical gaps through exploratory testing while improving bug tracking, documentation, and QA workflow transparency.' },
+  { icon: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z', title: 'API & Integration', desc: 'Validating inter-service communication and cross-service integration using Postman, response code monitoring, and log investigation to ensure accurate system data flow.' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Automation Testing', desc: 'Executing automation, regression, load, and stress testing with Katalon, Postman, and JMeter to improve testing efficiency and system stability.' },
   { icon: 'M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7zm4 3h8m-8 4h8m-8 4h4', title: 'Data Integrity', desc: 'Verifying database consistency and auditing backend data through SQL queries to ensure transaction accuracy and proper data flow.' },
-  { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2', title: 'Stability Assurance', desc: 'Performing load and stress testing using JMeter or any company-recommended tools to maintain optimal system performance and stability under high traffic conditions.' },
-  { icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', title: 'Cross-Platform Optimization.', desc: 'Ensuring consistent user experience and product quality across web and mobile devices.' },
-  { icon: 'M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11', title: 'QA Process Management.', desc: 'Optimizing bug tracking and documentation workflows for better team transparency.' },
-  { icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', title: 'Release Readiness', desc: 'Rigorous end-to-end testing to mitigate risks and ensure stability before production release.' },
+  { icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', title: 'Cross-Platform Optimization.', desc: 'Ensuring consistent user experience and product quality across web and mobile devices through responsive, compatibility, functional, and regression testing.' },
   { icon: 'M12 6V4m0 16v-2m8-6h-2M6 12H4m12.95-4.95l-1.414 1.414M8.464 15.536L7.05 16.95m9.9 0l-1.414-1.414M8.464 8.464L7.05 7.05', title: 'Analytical Problem Solving', desc: 'Identifying system risks and critical issues through structured, detail-oriented testing approaches.' },
-  { icon: 'M17 20h5v-2a4 4 0 00-4-4h-1M9 20H4v-2a4 4 0 014-4h1m4-4a4 4 0 100-8 4 4 0 000 8zm6 0a4 4 0 100-8', title: 'Agile Workflow', desc: 'Adapting quickly to Agile/Scrum environments while maintaining effective communication and collaboration with developers, product teams, and stakeholders throughout the QA process.' },
-  { icon: 'M12 3l1.8 5.5h5.8l-4.7 3.4 1.8 5.6L12 14.1l-4.7 3.4 1.8-5.6-4.7-3.4h5.8L12 3z', title: 'AI Integration', desc: 'Leveraging AI and advanced prompting to optimize manual workflows, dynamically generate test cases, and uncover edge cases for seamless automation readiness.' },
+  { icon: 'M12 3l1.8 5.5h5.8l-4.7 3.4 1.8 5.6L12 14.1l-4.7 3.4 1.8-5.6-4.7-3.4h5.8L12 3z', title: 'AI Prompting', desc: 'Using AI prompts to generate test cases, edge-case scenarios, test data, bug summaries, and QA documentation that support faster and more accurate testing workflows.' },
 ];
-
-const agileWorkflow = skills.find((skill) => skill.title === 'Agile Workflow');
-const visibleSkills = agileWorkflow ? [...skills.slice(0, 8), agileWorkflow] : skills.slice(0, 9);
 ---
 
 <section id="skills" class="py-10 sm:py-16 lg:py-20 bg-white">
@@ -28,7 +21,7 @@ const visibleSkills = agileWorkflow ? [...skills.slice(0, 8), agileWorkflow] : s
     </div>
 
     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
-      {visibleSkills.map(skill => (
+      {skills.map(skill => (
         <div class="group rounded-2xl border border-transparent bg-light-bg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-mint-200 hover:shadow-md md:p-6">
           <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white flex items-center justify-center mb-3 sm:mb-5 group-hover:bg-mint-50 transition-colors shadow-sm">
             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={skill.icon} /></svg>
